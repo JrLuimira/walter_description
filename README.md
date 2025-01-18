@@ -2,6 +2,8 @@ This is the Walter_description folder. In this folder, is the one that spawn the
 The following commands for controlling are:
 
 
-ros2 launch walter_description gazebo_walter.launch.py
+ros2 launch walter_description gazebo_walter.launch.py //
+
+
 ros2 run teleop_twist_keyboard teleop_twist_keyboard 
 
