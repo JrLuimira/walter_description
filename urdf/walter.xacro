@@ -1,0 +1,902 @@
+<?xml version="1.0"?>
+
+<robot name="Walter"
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="walter_gazebo.xacro" />
+
+    <link name="dummy_root">
+    </link>
+
+
+
+
+     <link name="panza">
+        <visual>
+            <origin xyz="0 1.1102230246251565404e-16 0.18240000000000003433" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/torso.stl" />
+            </geometry>
+            <material name="torso_material">
+                <color
+                    rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 1.1102230246251565404e-16 0.18240000000000003433" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/torso.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="3.5366736310120974436e-06 -1.0164944249061175444e-06 0.28644383296951653195"
+                rpy="0 0 0" />
+            <mass value="37.981250382069397631" />
+            <inertia ixx="0.93147768307078449013" ixy="1.0314156922500628319e-05"
+                ixz="3.7114421258874762019e-06" iyy="0.93168041764494147206"
+                iyz="-1.7562940793422002905e-06" izz="0.68744587515199118144" />
+        </inertial>
+    </link>
+
+    <link name="cabeza_pecho">
+        <visual>
+            <origin xyz="0 0 0" rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/pecho.stl" />
+            </geometry>
+            <material name="pecho_material">
+                <color
+                    rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/pecho.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0.034999999999999975575 2.5088733430774139339e-17 -0.26999999999999979572"
+                rpy="3.141592653589793116 -7.7355025826137686325e-17 -7.3589012180439136812e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/cabeza.stl" />
+            </geometry>
+            <material name="cabeza_material">
+                <color
+                    rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.034999999999999975575 2.5088733430774139339e-17 -0.26999999999999979572"
+                rpy="3.141592653589793116 -7.7355025826137686325e-17 -7.3589012180439136812e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/cabeza.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-2.1692739762109589967e-17 0.19500000000000008993 -0.017779999999999795968"
+                rpy="3.141592653589793116 -6.0722997586192119681e-17 -3.141592653589793116" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/brazo1.stl" />
+            </geometry>
+            <material name="brazo1_material">
+                <color
+                    rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-2.1692739762109589967e-17 0.19500000000000008993 -0.017779999999999795968"
+                rpy="3.141592653589793116 -6.0722997586192119681e-17 -3.141592653589793116" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/brazo1.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="-3.4453916703380334622e-17 -0.17999999999999996558 -0.017780000000000018012"
+                rpy="3.141592653589793116 -0 -3.141592653589793116" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/brazo1.stl" />
+            </geometry>
+            <material name="brazo1_material">
+                <color
+                    rgba="0.90196078431372550543 0.90196078431372550543 0.90196078431372550543 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="-3.4453916703380334622e-17 -0.17999999999999996558 -0.017780000000000018012"
+                rpy="3.141592653589793116 -0 -3.141592653589793116" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/brazo1.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="0.0027210420105864383152 -0.00020045946930025864731 -0.096581144323558784648"
+                rpy="0 0 0" />
+            <mass value="32.542285355597933005" />
+            <inertia ixx="0.45532393141777993684" ixy="-3.1430516357853002796e-05"
+                ixz="0.0062540021383989128148" iyy="0.40737380981547899328"
+                iyz="-0.0011563569028698421348" izz="0.3885002478865637876" />
+        </inertial>
+    </link>
+
+    <link name="pantalla">
+        <visual>
+            <origin
+                xyz="-4.1633363423443370266e-17 -0.0063773533988664699024 -0.0010000000000000008882"
+                rpy="-1.570796326794896558 -1.570796326794896558 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/pantalla.stl" />
+            </geometry>
+            <material name="pantalla_material">
+                <color rgba="0 0 0 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="-4.1633363423443370266e-17 -0.0063773533988664699024 -0.0010000000000000008882"
+                rpy="-1.570796326794896558 -1.570796326794896558 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/pantalla.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-5.9224247552555778029e-18 -9.7144514654701184961e-17 -0.00050000000000000087777"
+                rpy="0 0 0" />
+            <mass value="0.052708425382244711299" />
+            <inertia ixx="8.7518885294316788753e-05" ixy="0" ixz="7.3163984344922236004e-37"
+                iyy="0.00012648147131393697238" iyz="0" izz="0.00021399157187069003548" />
+        </inertial>
+    </link>
+
+    <link name="ojo_der">
+        <visual>
+            <origin xyz="0.049288699999999997792 -0.015239999999999920277 -0.0030000000000000026645"
+                rpy="-1.570796326794896558 4.5998421556777242306e-33 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/ojo1.stl" />
+            </geometry>
+            <material name="ojo1_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.049288699999999997792 -0.015239999999999920277 -0.0030000000000000026645"
+                rpy="-1.570796326794896558 4.5998421556777242306e-33 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/ojo1.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-2.1725723654830719767e-07 -4.1358975869099090517e-07 -0.0015000000000000024165"
+                rpy="0 0 0" />
+            <mass value="0.016158389381498900611" />
+            <inertia ixx="6.2099029968954678815e-06" ixy="-1.3050423685354312141e-10"
+                ixz="-1.2937429533846938739e-14" iyy="1.6722806386780241734e-06"
+                iyz="7.6244819049309471189e-38" izz="7.8579465371037161289e-06" />
+        </inertial>
+    </link>
+
+
+
+    <link name="ojo_izq">
+        <visual>
+            <origin xyz="-0.04928870000000001167 -0.015239999999999920277 -0.0030000000000000026645"
+                rpy="-1.570796326794896558 4.5998421556777242306e-33 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/ojo2.stl" />
+            </geometry>
+            <material name="ojo2_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.04928870000000001167 -0.015239999999999920277 -0.0030000000000000026645"
+                rpy="-1.570796326794896558 4.5998421556777242306e-33 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/ojo2.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-2.1725723654136830376e-07 -4.1358975869446035212e-07 -0.0015000000000000026333"
+                rpy="0 0 0" />
+            <mass value="0.016158389381498900611" />
+            <inertia ixx="6.2099029968954644934e-06" ixy="-1.3050423685349602382e-10"
+                ixz="-1.2937429532790463083e-14" iyy="1.6722806386780231146e-06"
+                iyz="7.6244819049309418987e-38" izz="7.8579465371037110467e-06" />
+        </inertial>
+    </link>
+
+   
+     <link name="fijos_inferior">
+        <visual>
+            <origin xyz="-8.6736173798840354721e-18 0.20637340124470729408 -0.17240000000000002545"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/eje_caster.stl" />
+            </geometry>
+            <material name="eje_caster_material">
+                <color
+                    rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-8.6736173798840354721e-18 0.20637340124470729408 -0.17240000000000002545"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/eje_caster.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="2.7755575615628913511e-17 -0.13017340124470755391 -0.058100000000000012745"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/bloque_1.stl" />
+            </geometry>
+            <material name="bloque_1_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="2.7755575615628913511e-17 -0.13017340124470755391 -0.058100000000000012745"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/bloque_1.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="2.7755575615628913511e-17 0.13017340124470727636 -0.058100000000000012745"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/bloque_1.stl" />
+            </geometry>
+            <material name="bloque_1_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="2.7755575615628913511e-17 0.13017340124470727636 -0.058100000000000012745"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/bloque_1.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.14740000000000005875"
+                rpy="0 -0 1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/eje.stl" />
+            </geometry>
+            <material name="eje_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.14740000000000005875"
+                rpy="0 -0 1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/eje.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0.21499999999999999667 -0.11747340124470750933 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+            <material name="varilla_material">
+                <color rgba="0 0 0 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.21499999999999999667 -0.11747340124470750933 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.17240000000000002545"
+                rpy="0 -0 3.141592653589793116" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/protector_1.stl" />
+            </geometry>
+            <material name="protector_1_material">
+                <color
+                    rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.17240000000000002545"
+                rpy="0 -0 3.141592653589793116" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/protector_1.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.18240000000000003433"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base.stl" />
+            </geometry>
+            <material name="base_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.18240000000000003433"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0.21499999999999988565 0.11747340124470734279 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+            <material name="varilla_material">
+                <color rgba="0 0 0 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.21499999999999988565 0.11747340124470734279 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-2.7755575615628913511e-17 -2.7755575615628913511e-17 0"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base.stl" />
+            </geometry>
+            <material name="base_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-2.7755575615628913511e-17 -2.7755575615628913511e-17 0"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-9.2690810421447531511e-18 -0.20637340124470757163 -0.17240000000000002545"
+                rpy="0 -0 1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/eje_caster.stl" />
+            </geometry>
+            <material name="eje_caster_material">
+                <color
+                    rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-9.2690810421447531511e-18 -0.20637340124470757163 -0.17240000000000002545"
+                rpy="0 -0 1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/eje_caster.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.0287873947806897903e-16 -0.04540000000000002367"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base.stl" />
+            </geometry>
+            <material name="base_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.0287873947806897903e-16 -0.04540000000000002367"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-3.0335126963683255566e-17 -0.17462340124470757119 -0.2188580000000000525"
+                rpy="0 -0 -1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base_caster.stl" />
+            </geometry>
+            <material name="base_caster_material">
+                <color
+                    rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-3.0335126963683255566e-17 -0.17462340124470757119 -0.2188580000000000525"
+                rpy="0 -0 -1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base_caster.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-8.6736173798840354721e-18 0.20637340124470729408 -0.2188580000000000525"
+                rpy="0 -0 -1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base_caster.stl" />
+            </geometry>
+            <material name="base_caster_material">
+                <color
+                    rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-8.6736173798840354721e-18 0.20637340124470729408 -0.2188580000000000525"
+                rpy="0 -0 -1.570796326794896558" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/base_caster.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.04540000000000002367"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/protector_2.stl" />
+            </geometry>
+            <material name="protector_2_material">
+                <color
+                    rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.04540000000000002367"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/protector_2.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.17240000000000002545"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/tope.stl" />
+            </geometry>
+            <material name="tope_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="2.7755575615628913511e-17 -1.6653345369377348106e-16 -0.17240000000000002545"
+                rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/tope.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-0.21499999999999994116 -0.11747340124470756484 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+            <material name="varilla_material">
+                <color rgba="0 0 0 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.21499999999999994116 -0.11747340124470756484 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="-0.21499999999999994116 0.11747340124470734279 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+            <material name="varilla_material">
+                <color rgba="0 0 0 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.21499999999999994116 0.11747340124470734279 -0.010000000000000008882"
+                rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/varilla.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="4.9633222950344091646e-17 0.00028461958520185974249 -0.11876685212597426489"
+                rpy="0 0 0" />
+            <mass value="23.260338734639304903" />
+            <inertia ixx="0.50714060912894154409" ixy="-4.7042515824609332231e-16"
+                ixz="-6.8508024773927811424e-18" iyy="0.19579948518100112609"
+                iyz="-6.5321994366638013981e-05" izz="0.6443763852216458643" />
+        </inertial>
+    </link>
+
+     <link name="llantita_1">
+        <visual>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+            <material name="llanta_izquierda_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-5.1779413895018431277e-67 1.6788122156820142359e-18 -0.012700000000000001218"
+                rpy="0 0 0" />
+            <mass value="0.082635318611771216291" />
+            <inertia ixx="1.214070374013348147e-05" ixy="0" ixz="0" iyy="1.2140703740133479776e-05"
+                iyz="0" izz="1.5964940515841221383e-05" />
+        </inertial>
+    </link>
+
+    
+
+    <link name="llantita_2">
+        <visual>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+            <material name="llanta_izquierda_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-5.1779413895018431277e-67 1.6788122156820142359e-18 -0.012700000000000001218"
+                rpy="0 0 0" />
+            <mass value="0.082635318611771216291" />
+            <inertia ixx="1.214070374013348147e-05" ixy="0" ixz="0" iyy="1.2140703740133479776e-05"
+                iyz="0" izz="1.5964940515841221383e-05" />
+        </inertial>
+    </link>
+
+   
+
+    <link name="llantita_4">
+        <visual>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+            <material name="llanta_izquierda_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-5.1779413895018431277e-67 1.6788122156820142359e-18 -0.012700000000000001218"
+                rpy="0 0 0" />
+            <mass value="0.082635318611771216291" />
+            <inertia ixx="1.214070374013348147e-05" ixy="0" ixz="0" iyy="1.2140703740133479776e-05"
+                iyz="0" izz="1.5964940515841221383e-05" />
+        </inertial>
+    </link>
+
+
+    <link name="llantita_3">
+        <visual>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+            <material name="llanta_izquierda_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.012700000000000002953" rpy="1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta_izquierda.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-5.1779413895018431277e-67 -1.6788122156820142359e-18 -0.012700000000000001218"
+                rpy="0 0 0" />
+            <mass value="0.082635318611771216291" />
+            <inertia ixx="1.214070374013348147e-05" ixy="0" ixz="0" iyy="1.2140703740133479776e-05"
+                iyz="0" izz="1.5964940515841221383e-05" />
+        </inertial>
+    </link>
+
+    
+
+    <link name="rueda">
+        <visual>
+            <origin xyz="0 1.7347234759768070944e-18 -0.015000000000000013323"
+                rpy="1.570796326794896558 -4.8166279312749192404e-17 1.1043110575768980303e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta.stl" />
+            </geometry>
+            <material name="llanta_material">
+                <color
+                    rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 1.7347234759768070944e-18 -0.015000000000000013323"
+                rpy="1.570796326794896558 -4.8166279312749192404e-17 1.1043110575768980303e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 1.7347234759768070944e-18 -0.015000000000000013323"
+                rpy="1.570796326794896558 4.8166279312749192404e-17 1.1043110575768980303e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/aro.stl" />
+            </geometry>
+            <material name="aro_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 1.7347234759768070944e-18 -0.015000000000000013323"
+                rpy="1.570796326794896558 4.8166279312749192404e-17 1.1043110575768980303e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/aro.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-2.2944407627324867965e-19 -1.8380720960163153021e-18 -0.015000000000000016792"
+                rpy="0 0 0" />
+            <mass value="1.2695552659388231742" />
+            <inertia ixx="0.002806254295122597147" ixy="1.095511843614715085e-19"
+                ixz="7.0997297655306832548e-20" iyy="0.0028062542951225984481"
+                iyz="-5.514864833069833807e-36" izz="0.0054879451125068694217" />
+        </inertial>
+    </link>
+
+   
+    <link name="rueda_2">
+        <visual>
+            <origin xyz="0 0 -0.014999999999999985567"
+                rpy="-1.570796326794896558 4.8166279312749512878e-17 -1.1024719869637745434e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta.stl" />
+            </geometry>
+            <material name="llanta_material">
+                <color
+                    rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.014999999999999985567"
+                rpy="-1.570796326794896558 4.8166279312749512878e-17 -1.1024719869637745434e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/llanta.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0 -0.015000000000000013323"
+                rpy="-1.570796326794896558 -4.8166279312749364967e-17 -1.1024719869637745434e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/aro.stl" />
+            </geometry>
+            <material name="aro_material">
+                <color rgba="0 0 1 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 -0.015000000000000013323"
+                rpy="-1.570796326794896558 -4.8166279312749364967e-17 -1.1024719869637745434e-17" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/aro.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-2.2944407627324896854e-19 3.5727955719931223965e-18 -0.015000000000000006384"
+                rpy="0 0 0" />
+            <mass value="1.2695552659388231742" />
+            <inertia ixx="0.0028062542951225984481" ixy="-2.333516205509314518e-19"
+                ixz="-7.0997297655306603843e-20" iyy="0.0028062542951225984481"
+                iyz="5.5134361936445202724e-34" izz="0.0054879451125068694217" />
+        </inertial>
+    </link>
+
+    <link name="liddar">
+        <visual>
+            <origin xyz="0 7.7765071745856694832e-19 0" rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/liddar.stl" />
+            </geometry>
+            <material name="liddar_material">
+                <color rgba="0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 7.7765071745856694832e-19 0" rpy="3.141592653589793116 -0 0" />
+            <geometry>
+                <mesh filename="package://walter_description/meshes/liddar.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin
+                xyz="-2.893868988085675804e-19 -3.2109448978934724758e-19 -0.0090538709677419355187"
+                rpy="0 0 0" />
+            <mass value="0.065432960922784652591" />
+            <inertia ixx="4.4421374809731059753e-06" ixy="0" ixz="0" iyy="4.4421374809731068223e-06"
+                iyz="0" izz="4.2963700068554057612e-06" />
+        </inertial>
+    </link>
+
+
+
+    <!--Joints -->
+
+    <joint name="dummy_root_to_panza" type="fixed">
+        <parent link="dummy_root" />
+        <child link="panza" />
+        <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
+    </joint>
+
+
+    <joint name="rueda_izquierda" type="continuous">
+        <origin xyz="0.23000000000000014877 -1.2164877667205270128e-16 -0.147400000000000031"
+            rpy="-1.5707963267948978903 -0.60873111125920864595 1.5707963267948985564" />
+        <parent link="fijos_inferior" />
+        <child link="rueda_2" />
+        <axis xyz="0 0 -1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+    <joint name="cuerpo" type="fixed">
+        <origin xyz="-2.7755575615628913511e-17 1.6653345369377348106e-16 0.18240000000000003433"
+            rpy="0 -0 0" />
+        <parent link="panza" />
+        <child link="fijos_inferior" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+    <joint name="rueda_derecha" type="continuous">
+        <origin xyz="-0.22999999999999989897 -1.2585418818211734977e-16 -0.147400000000000031"
+            rpy="1.570796326794896558 1.3479208634112187504 1.570796326794896558" />
+        <parent link="fijos_inferior" />
+        <child link="rueda" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+    <joint name="pecho" type="fixed">
+        <origin xyz="0 1.1990099175633397595e-16 0.80740540000000016185"
+            rpy="3.141592653589793116 -0 -1.57079632679489678" />
+        <parent link="panza" />
+        <child link="cabeza_pecho" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+    <joint name="liddar_fijos_inferior" type="fixed">
+        <origin xyz="8.3266726846886740532e-17 -1.1024465174505708709e-16 -0.035400000000000014788"
+            rpy="3.141592653589793116 -0 0" />
+        <parent link="fijos_inferior" />
+        <child link="liddar" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+     <joint name="ojo_izq_joint" type="fixed">
+        <origin xyz="-0.043180000000000003102 0 -0.0010000000000000008882"
+            rpy="1.3558546808486146974e-31 -5.551115123125774074e-17 3.141592653589793116" />
+        <parent link="pantalla" />
+        <child link="ojo_izq" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+     <joint name="ojo_der_joint" type="fixed">
+        <origin xyz="0.043180000000000003102 0 -0.00099999999999999394928"
+            rpy="1.3558546808486146974e-31 -5.551115123125774074e-17 3.141592653589793116" />
+        <parent link="pantalla" />
+        <child link="ojo_der" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+    <joint name="pantalla_joint" type="fixed">
+        <origin xyz="0.054499999999999985956 -0.00049666369844005627682 -0.27584611507324807711"
+            rpy="-1.57079632679489678 2.8017321897530420856e-17 1.57079632679489678" />
+        <parent link="cabeza_pecho" />
+        <child link="pantalla" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+     <joint name="llantita1_joint" type="fixed">
+        <origin xyz="0.019049999999999969735 -0.19049840124470757141 -0.22139800000000001146"
+            rpy="1.570796326794896558 -0 -1.570796326794896558" />
+        <parent link="fijos_inferior" />
+        <child link="llantita_1" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+     <joint name="llantita2_joint" type="fixed">
+        <origin xyz="-0.019050000000000032185 -0.19049840124470757141 -0.22139800000000003921"
+            rpy="-1.570796326794896558 -0 -1.570796326794896558" />
+        <parent link="fijos_inferior" />
+        <child link="llantita_2" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+
+    <joint name="llantita3_joint" type="fixed">
+        <origin xyz="-0.019050000000000011369 0.19049840124470729386 -0.22139800000000003921"
+            rpy="-1.570796326794896558 -0 -1.570796326794896558" />
+        <parent link="fijos_inferior" />
+        <child link="llantita_3" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+     <joint name="llantita4_joint" type="fixed">
+        <origin xyz="0.019049999999999990552 0.19049840124470729386 -0.22139800000000003921"
+            rpy="1.570796326794896558 -0 -1.570796326794896558" />
+        <parent link="fijos_inferior" />
+        <child link="llantita_4" />
+        <axis xyz="0 0 1" />
+        <limit effort="1.5" velocity="22" />
+        <joint_properties friction="0.0" />
+    </joint>
+
+
+
+</robot>
