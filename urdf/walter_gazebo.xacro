@@ -4,7 +4,7 @@
   xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- Gazebo plugings -->
 
-  <gazebo reference="dummy_root">
+  <gazebo reference="base_footprint">
   </gazebo>
 
   <gazebo reference="panza">
@@ -16,7 +16,7 @@
   </gazebo>
 
 
-  <gazebo reference="liddar">
+  <gazebo reference="lidar">
 
     <selfCollide>true</selfCollide>
     <gravity>true</gravity>
@@ -169,37 +169,37 @@
       <!-- <state_interface name="effort" /> -->
     </joint>
   </ros2_control>
-  <!-- Liddar Plugging-->
+  <!-- lidar Plugging-->
 
-    <gazebo reference="liddar">
-        <sensor name="laser" type="ray">
-            <pose>0 0 2.0 0 0 0 </pose>
-            <visualise>true</visualise>
-            <update_rate>10</update_rate>
-            <ray>
-                <scan>
-                    <horizontal>
-                        <samples>360</samples>
-                        <resolution>1</resolution>
-                        <min_angle>-3.14</min_angle>
-                        <max_angle>3.14</max_angle>
-                    </horizontal>
-                </scan>
-                <range>
-                    <min>0.1</min>
-                    <max>12</max>
-                    <resolution>0.01</resolution>
-                </range>
-            </ray>
-            <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
-                <ros>
-                    <argument>~/out:=scan</argument>
-                </ros>
-                <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>liddar</frame_name>
-            </plugin>
-        </sensor>
-    </gazebo>
+  <gazebo reference="lidar">
+    <sensor name="laser" type="ray">
+      <pose>0 0 0 0 0 0 </pose>
+      <visualise>true</visualise>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>12</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
 
 
   <!-- Diferencial drive controladores-->
@@ -207,7 +207,7 @@
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
 
       <parameters>$(find walter_description)/config/controllers.yaml</parameters>
-      <parameters>$(find walter_cartographer)/config/mappers_params_online_async.yaml</parameters>
+      <!-- <parameters>$(find walter_cartographer)/config/mappers_params_online_async.yaml</parameters> -->
       <ros>
         <remapping>/diff_drive_base_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
         <remapping>/diff_drive_base_controller/odom:=/groundtruth_odom</remapping>

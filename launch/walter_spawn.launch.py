@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, RegisterEventHandler
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
 from launch_ros.parameter_descriptions import ParameterValue
@@ -10,6 +10,7 @@ from launch.substitutions import (
     PathJoinSubstitution,
     LaunchConfiguration,
 )
+from launch.event_handlers import OnProcessExit
 
 
 def generate_launch_description():
@@ -82,6 +83,15 @@ def generate_launch_description():
         ],
     )
 
+    delay_robot_controller_spawner_after_joint_state_broadcaster_spawner = (
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=joint_state_broadcaster_spawner_node,
+                on_exit=[robot_controller_spawner],
+            ),
+        )
+    )
+
     # ! LAUNCH DESCRIPTION DECLARATION
     ld = LaunchDescription()
 
@@ -92,6 +102,6 @@ def generate_launch_description():
 
     ld.add_action(spawn_model_node)
     ld.add_action(joint_state_broadcaster_spawner_node)
-    ld.add_action(robot_controller_spawner)
+    ld.add_action(delay_robot_controller_spawner_after_joint_state_broadcaster_spawner)
 
     return ld
