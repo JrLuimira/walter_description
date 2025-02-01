@@ -210,7 +210,7 @@
       <parameters>$(find walter_description)/config/controllers.yaml</parameters>
       <ros>
         <remapping>/diff_drive_base_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
-        <remapping>/diff_drive_base_controller/odom:=/groundtruth_odom</remapping>
+        <remapping>/diff_drive_base_controller/odom:=/odom</remapping>
       </ros>
 
     </plugin>
