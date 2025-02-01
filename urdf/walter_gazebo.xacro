@@ -85,8 +85,8 @@
     <gravity>true</gravity>
     <material>Gazebo/Blue</material>
     <preserveFixedJoint>true</preserveFixedJoint>
-    <mu1 value="0.001" />
-    <mu2 value="0.001" />
+    <mu1 value="0.020" />
+    <mu2 value="0.020" />
     <kp value="10000000.0" />
     <kd value="100.0" />
   </gazebo>
@@ -97,8 +97,8 @@
     <gravity>true</gravity>
     <material>Gazebo/Blue</material>
     <preserveFixedJoint>true</preserveFixedJoint>
-    <mu1 value="0.001" />
-    <mu2 value="0.001" />
+    <mu1 value="0.020" />
+    <mu2 value="0.020" />
     <kp value="10000000.0" />
     <kd value="100.0" />
   </gazebo>
@@ -109,8 +109,8 @@
     <gravity>true</gravity>
     <material>Gazebo/Blue</material>
     <preserveFixedJoint>true</preserveFixedJoint>
-    <mu1 value="0.001" />
-    <mu2 value="0.001" />
+    <mu1 value="0.020" />
+    <mu2 value="0.020" />
     <kp value="10000000.0" />
     <kd value="100.0" />
   </gazebo>
@@ -121,24 +121,24 @@
     <gravity>true</gravity>
     <material>Gazebo/Blue</material>
     <preserveFixedJoint>true</preserveFixedJoint>
-    <mu1 value="0.001" />
-    <mu2 value="0.001" />
+    <mu1 value="0.020" />
+    <mu2 value="0.020" />
     <kp value="10000000.0" />
     <kd value="100.0" />
   </gazebo>
 
 
   <gazebo reference="rueda">
-    <mu1 value="100.0" />
-    <mu2 value="200.0" />
+    <mu1 value="140.0" />
+    <mu2 value="260.0" />
     <kp value="10000000.0" />
     <kd value="100.0" />
     <material>Gazebo/Blue</material>
   </gazebo>
 
   <gazebo reference="rueda_2">
-    <mu1 value="100.0" />
-    <mu2 value="200.0" />
+    <mu1 value="140.0" />
+    <mu2 value="260.0" />
     <kp value="10000000.0" />
     <kd value="100.0" />
     <material>Gazebo/Blue</material>
@@ -173,7 +173,7 @@
 
     <gazebo reference="liddar">
         <sensor name="laser" type="ray">
-            <pose>0 0 0 0 0 </pose>
+            <pose>0 0 2.0 0 0 0 </pose>
             <visualise>true</visualise>
             <update_rate>10</update_rate>
             <ray>
@@ -196,7 +196,7 @@
                     <argument>~/out:=scan</argument>
                 </ros>
                 <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>sensor_laser</frame_name>
+                <frame_name>liddar</frame_name>
             </plugin>
         </sensor>
     </gazebo>
@@ -207,6 +207,7 @@
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
 
       <parameters>$(find walter_description)/config/controllers.yaml</parameters>
+      <parameters>$(find walter_cartographer)/config/mappers_params_online_async.yaml</parameters>
       <ros>
         <remapping>/diff_drive_base_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
         <remapping>/diff_drive_base_controller/odom:=/groundtruth_odom</remapping>
