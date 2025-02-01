@@ -7,10 +7,13 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Comm
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
 
+
 def generate_launch_description():
 
     # Obtener directorios de paquetes
-    walter_description_dir = FindPackageShare(package="walter_description").find("walter_description")
+    walter_description_dir = FindPackageShare(package="walter_description").find(
+        "walter_description"
+    )
     gazebo_ros_dir = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
 
     # Ruta del archivo SDF del mundo
@@ -23,18 +26,29 @@ def generate_launch_description():
         "world", default_value=world_file, description="World file"
     )
 
+    declare_use_sim_time = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true",
+        description="Use simulation time or not.",
+        choices=["true", "false"],
+    )
+
     # Incluir el launch de Gazebo con el mundo definido
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([gazebo_ros_dir, "launch", "gazebo.launch.py"])
         ),
-        launch_arguments={"world": LaunchConfiguration("world")}.items(),
+        launch_arguments={
+            "world": LaunchConfiguration("world"),
+        }.items(),
     )
 
     # Incluir el launch para spawnear el robot
     spawn_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            PathJoinSubstitution([walter_description_dir, "launch", "walter_spawn.launch.py"])
+            PathJoinSubstitution(
+                [walter_description_dir, "launch", "walter_spawn.launch.py"]
+            )
         ),
         launch_arguments={"y": "0"}.items(),
     )
@@ -47,12 +61,15 @@ def generate_launch_description():
         output="screen",
         parameters=[
             {
+                "use_sim_time": LaunchConfiguration("use_sim_time"),
                 "robot_description": Command(
                     [
                         "xacro ",
-                        PathJoinSubstitution([walter_description_dir, "urdf", "walter.xacro"]),
+                        PathJoinSubstitution(
+                            [walter_description_dir, "urdf", "walter.xacro"]
+                        ),
                     ]
-                )
+                ),
             }
         ],
     )
@@ -62,6 +79,7 @@ def generate_launch_description():
 
     # Agregar argumento de mundo
     ld.add_action(declare_world_arg)
+    ld.add_action(declare_use_sim_time)
 
     # Agregar nodos y lanzamientos
     ld.add_action(robot_state_publisher_node)

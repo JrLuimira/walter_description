@@ -87,8 +87,8 @@
     <preserveFixedJoint>true</preserveFixedJoint>
     <mu1 value="0.020" />
     <mu2 value="0.020" />
-    <kp value="10000000.0" />
-    <kd value="100.0" />
+    <kp value="1000000.0" />
+    <kd value="1000000.0" />
   </gazebo>
 
   <gazebo reference="llantita_2">
@@ -99,8 +99,8 @@
     <preserveFixedJoint>true</preserveFixedJoint>
     <mu1 value="0.020" />
     <mu2 value="0.020" />
-    <kp value="10000000.0" />
-    <kd value="100.0" />
+    <kp value="1000000.0" />
+    <kd value="1000000.0" />
   </gazebo>
 
   <gazebo reference="llantita_3">
@@ -112,7 +112,7 @@
     <mu1 value="0.020" />
     <mu2 value="0.020" />
     <kp value="10000000.0" />
-    <kd value="100.0" />
+    <kd value="200.0" />
   </gazebo>
 
   <gazebo reference="llantita_4">
@@ -124,21 +124,21 @@
     <mu1 value="0.020" />
     <mu2 value="0.020" />
     <kp value="10000000.0" />
-    <kd value="100.0" />
+    <kd value="200.0" />
   </gazebo>
 
 
   <gazebo reference="rueda">
-    <mu1 value="140.0" />
-    <mu2 value="260.0" />
+    <mu1 value="100000.0" />
+    <mu2 value="100000.0" />
     <kp value="10000000.0" />
     <kd value="100.0" />
     <material>Gazebo/Blue</material>
   </gazebo>
 
   <gazebo reference="rueda_2">
-    <mu1 value="140.0" />
-    <mu2 value="260.0" />
+    <mu1 value="100000.0" />
+    <mu2 value="100000.0" />
     <kp value="10000000.0" />
     <kd value="100.0" />
     <material>Gazebo/Blue</material>
@@ -169,8 +169,9 @@
       <!-- <state_interface name="effort" /> -->
     </joint>
   </ros2_control>
-  <!-- lidar Plugging-->
 
+
+  <!-- lidar Plugging-->
   <gazebo reference="lidar">
     <sensor name="laser" type="ray">
       <pose>0 0 0 0 0 0 </pose>
@@ -207,7 +208,6 @@
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
 
       <parameters>$(find walter_description)/config/controllers.yaml</parameters>
-      <!-- <parameters>$(find walter_cartographer)/config/mappers_params_online_async.yaml</parameters> -->
       <ros>
         <remapping>/diff_drive_base_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
         <remapping>/diff_drive_base_controller/odom:=/groundtruth_odom</remapping>
