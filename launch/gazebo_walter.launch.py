@@ -20,14 +20,14 @@ def generate_launch_description():
     )
     gazebo_ros_dir = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
 
-    # Ruta del archivo SDF del mundo
+    #   #Ruta del archivo SDF del mundo
     # world_file = PathJoinSubstitution(
-    #     [walter_description_dir, "worlds", "muestra", "model.sdf"]
-    # )
+    #       [walter_description_dir, "worlds", "muestra", "map2.pgm"]
+    #   )
 
     world_file = PathJoinSubstitution(
-        [walter_description_dir, "worlds", "turtlebot3_house.world"]
-    )
+          [walter_description_dir, "worlds", "turtlebot3_house.world"]
+      )
 
     # Declarar argumento de mundo
     declare_world_arg = DeclareLaunchArgument(
