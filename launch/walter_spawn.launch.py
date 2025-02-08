@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, RegisterEventHandler
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
 from launch_ros.parameter_descriptions import ParameterValue
@@ -10,6 +10,8 @@ from launch.substitutions import (
     PathJoinSubstitution,
     LaunchConfiguration,
 )
+from launch.event_handlers import OnProcessExit
+from launch.actions import TimerAction
 
 
 def generate_launch_description():
@@ -67,6 +69,7 @@ def generate_launch_description():
             "--controller-manager",
             "/controller_manager",
         ],
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
     robot_controller_spawner = Node(
@@ -80,6 +83,16 @@ def generate_launch_description():
         remappings=[
             ("/diff_drive_base_controller/cmd_vel_unstamped", "/cmd_vel"),
         ],
+        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
+    )
+
+    delay_robot_controller_spawner_after_joint_state_broadcaster_spawner = (
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=joint_state_broadcaster_spawner_node,
+                on_exit=[robot_controller_spawner],
+            ),
+        )
     )
 
     # ! LAUNCH DESCRIPTION DECLARATION

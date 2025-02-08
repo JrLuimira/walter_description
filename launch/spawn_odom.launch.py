@@ -93,4 +93,3 @@ def generate_launch_description():
         joint_state_broadcaster_spawner_node,
         robot_controller_spawner,
 ])
-
