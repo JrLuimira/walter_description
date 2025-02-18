@@ -1,13 +1,13 @@
 {
     "configuration": "default",
     "documentId": "cedd0ec0cc2b4544a8da0cc6",
-    "documentMicroversion": "ee5cf1a1d3b893452bd2b175",
-    "elementId": "f44c7e9d7e2954d778448d04",
+    "documentMicroversion": "45c27e0a0c6267969cc7d36b",
+    "elementId": "3c95b9bb28227679b20e6eb5",
     "fullConfiguration": "default",
-    "id": "MgxuZfkorXA07oleR",
+    "id": "MyVL5nnUtba10oiKS",
     "isStandardContent": false,
     "name": "lidar <1>",
-    "partId": "JHD",
+    "partId": "JFD",
     "suppressed": false,
     "type": "Part"
 }
