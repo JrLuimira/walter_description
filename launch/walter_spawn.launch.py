@@ -86,14 +86,6 @@ def generate_launch_description():
         parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
-    delay_robot_controller_spawner_after_joint_state_broadcaster_spawner = (
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=joint_state_broadcaster_spawner_node,
-                on_exit=[robot_controller_spawner],
-            ),
-        )
-    )
 
     # ! LAUNCH DESCRIPTION DECLARATION
     ld = LaunchDescription()

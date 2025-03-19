@@ -15,9 +15,6 @@ def generate_launch_description():
         "walter_description"
     )
     
-    turtlebot3_gazebo_dir = FindPackageShare(package="turtlebot3_gazebo").find(
-        "turtlebot3_gazebo"
-    )
     gazebo_ros_dir = FindPackageShare(package="gazebo_ros").find("gazebo_ros")
 
     #   #Ruta del archivo SDF del mundo
@@ -72,7 +69,7 @@ def generate_launch_description():
                 "use_sim_time": LaunchConfiguration("use_sim_time"),
                 "robot_description": Command(
                     [
-                        "xacro ",
+                        "xacro",
                         PathJoinSubstitution(
                             [walter_description_dir, "urdf", "walter.xacro"]
                         ),
@@ -80,6 +77,12 @@ def generate_launch_description():
                 ),
             }
         ],
+    )
+    groundtruth_broadcaster_node = Node(
+        package="walter_description",
+        executable="groundtruth_broadcaster.py",
+        name="groundtruth_broadcaster",
+        output="screen"
     )
 
     # Definir la descripción del lanzamiento
@@ -93,5 +96,5 @@ def generate_launch_description():
     ld.add_action(robot_state_publisher_node)
     ld.add_action(gazebo_launch)
     ld.add_action(spawn_launch)
-
+    ld.add_action(groundtruth_broadcaster_node)
     return ld

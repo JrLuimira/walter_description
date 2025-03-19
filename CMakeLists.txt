@@ -7,6 +7,13 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclpy REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(gazebo_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(gazebo_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -24,8 +31,16 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY launch meshes urdf rviz config worlds
+  DIRECTORY launch meshes urdf rviz config worlds scripts
   DESTINATION share/${PROJECT_NAME}
 )
+
+install(PROGRAMS
+  scripts/groundtruth_broadcaster.py
+  scripts/improve_odometry.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+ament_export_dependencies(rclpy geometry_msgs gazebo_msgs tf2_msgs tf2_ros nav_msgs gazebo_msgs)
 
 ament_package()

@@ -1,7 +1,8 @@
 # Walter
-## The ecuadorian service robot
-In this work is the simulation of Walter, a robor develop in ESPOL (Ecuador). It is a mobile robot which is focus in the social navigation field, playing many different roles as server, host, AVG. 
+## Service Robot Model, Walter
 
+In this work is the simulation of Walter, a robor develop in ESPOL (Ecuador). It is a mobile robot which is focus in the social navigation field, playing many different roles as server, host, AVG. 
+![image alt](https://github.com/JrLuimira/walter_description/blob/ef97f77d04e92d608e94b30eafb3155a957dd518/walter_image.jpeg)
 + Nowadays is using ROS2 humble
 + For running the code you need the three repo above:
   - https://github.com/JrLuimira/walter_cartographer.git
